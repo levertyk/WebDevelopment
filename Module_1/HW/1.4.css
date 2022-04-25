@@ -1,0 +1,76 @@
+/* Defining styles for table cells used in LevertyK_HW1.4_06-08-2020. */
+
+/* Base Formatting for Calendar Schedule */
+#calendar{
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+/* Specific formatting of cell types within the calendar only. */
+#calendar td, th{
+    border: 1px solid black;
+    height: 25px;
+    width: 3cm;
+    padding: 5px;
+    text-align: center;
+}
+
+/* Formatting every other row as a color. */
+#calendar tr:nth-child(even) {
+    background-color: lightcyan;
+}
+
+/* Table Headers */
+.tableHead {
+    background-color: darkred;
+    color: white;
+}
+
+/* Time Column */
+.time:hover {
+    color: red;
+}
+
+/* Sleep Cell */
+#sleep {
+    background-color: gray;
+    color: darkgray;
+}
+
+/* End of Day Cell */
+#endOfDay {
+    background-color: darkgray;
+    color: lightgray;
+}
+
+/* ICT Class */
+.ict{
+    background-color: lightskyblue;
+}
+
+/* Math Class */
+.math {
+    background-color: lightgoldenrodyellow;
+}
+
+/* Photo 310 Class (as an id) */
+#photo310 {
+    background-color: lightgreen;
+}
+
+/* Photo 330 Class (as an id) */
+#photo330 {
+    background-color: lightcoral;
+}
+
+/* Formatting for empty cells. */
+.empty {
+    background-color: #eeeeee;
+}
+
+/* Canvas Formatting */
+#canvas {
+    background-color: #333;
+    border: 1px solid black;
+}
+

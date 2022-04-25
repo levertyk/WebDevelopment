@@ -1,0 +1,8 @@
+/* #dataTable td, #dataTable th, #dataTable table {
+    border: 3px solid darkgray;
+}
+ */
+
+.infoBox {
+    border: 1px solid lightgrey;
+}

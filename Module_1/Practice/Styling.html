@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Styling HTML</title>
+        <style>
+            #firstHeader{
+                color:red ; font-size: 12px;
+            }
+
+            .blueHeader{
+                color:blue; font-size: 12px;
+                border: 1px solid grey;
+            }
+
+            th, td {
+                 border: 1px solid black;
+                 padding: 5px;
+                }
+
+            th:nth-child(1) { text-align: left; }
+            td { text-align: center; }
+
+            table{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>Styles for Tables</header>
+
+        <section>
+            <h1 id="firstHeader" class="blueHeader">Tabel Styles</h1>
+            <h1 class="blueHeader">Tabel Styles</h1>
+            <p>Imaginary Student Grades.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Exam 1</th>
+                        <th>Exam 2</th>
+                        <th>Exam 3</th>
+                        <th>Exam 4</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>Seth</th>
+                        <td>90%</td>
+                        <td>87%</td>
+                        <td>93%</td>
+                        <td rowspan="3">91%</td>
+                    </tr>
+
+                    <tr>
+                        <th>Julie</th>
+                        <td>95%</td>
+                        <td>97%</td>
+                        <td>83%</td>
+                        <!-- <td>91%</td> -->
+                    </tr>
+
+                    <tr>
+                        <th>José</th>
+                        <td>88%</td>
+                        <td>78%</td>
+                        <td>87%</td>
+                        <!-- <td>91%</td> -->
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Note</th>
+                        <td colspan="4" style="text-align: left;">Exam 4 had cheating.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <br>
+        <footer>&copy; 2020 Keenan Leverty - For CS 248 at UW Stout</footer>
+    </body>
+
+</html>

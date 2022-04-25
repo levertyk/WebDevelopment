@@ -1,0 +1,18 @@
+/* Column Widths */
+th { width: 22%; }
+th:nth-child(1) { width: 12%; }
+
+/* Header colors */
+th { background-color: #eeeeee; }
+th.boyColor { background-color: #99ccff; }
+th.girlColor { background-color: pink; }
+
+/* Cell text alignment */
+th { text-align: center; }
+thead tr { vertical-align: bottom; }
+tbody tr { text-align: right; }
+
+/* Custom Background for Base Page Title */
+.customBackground {
+    background-color: lightslategray;
+}

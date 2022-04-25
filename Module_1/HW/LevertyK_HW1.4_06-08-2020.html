@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1.4 - Styled Tables and Motion Graphics</title>
+        <link rel="stylesheet" href="1.4.css">
+        <link rel="stylesheet" href="1.4_tooltip.css">
+
+    </head>
+
+        <body>
+            <header>1.4 - Styled Tables and Motion Graphics - CS 248</header>
+
+            <section>
+                <h1>Weekly Schedule Table</h1>
+
+                <table id="calendar">
+                    <!-- Row 1 -->
+                    <thead>
+                        <tr>
+                            <th class = "tableHead">Time</th>
+                            <th class = "tableHead">Monday</th>
+                            <th class = "tableHead">Teusday</th>
+                            <th class = "tableHead">Wednesday</th>
+                            <th class = "tableHead">Thursday</th>
+                            <th class = "tableHead">Friday</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- Row 2 -->
+                        <tr>
+                            <th class = "time">8:00AM</th>
+                            <td colspan="5" rowspan="2" id = "sleep"><i>Sleep</i></td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <th class = "time">9:00AM</th>
+                            <!-- Sleep -->
+                        </tr>
+
+                        <!-- Row 4 -->
+                        <tr>
+                            <th class = "time">10:00AM</th>
+                            <td colspan="5" class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 5 -->
+                        <tr>
+                            <th class = "time">11:00AM</th>
+                            <td colspan="5" class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 6 -->
+                        <tr>
+                            <th rowspan="2" class = "time">12:00PM</th>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                            <td rowspan="4" id = "photo330" class = "tooltip">Photo 330: Advanced Videography
+                                <span class = "tooltiptext">ComTech 241</span>
+                            </td>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 6.5 -->
+                        <tr>
+                            <!-- 12:30PM -->
+                            <td class = "empty"></td>
+                            <td rowspan="3" class = "ict tooltip">ICT 215: Tech Ethics
+                                <span class = "tooltiptext">ComTech 141</span>
+                            </td>
+                            <!-- Photo 330 -->
+                            <td rowspan="3" class = "ict tooltip">ICT 215: Tech Ethics
+                                <span class = "tooltiptext">ComTech 141</span>
+                            </td>
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 7 -->
+                        <tr>
+                            <th rowspan="2" class = "time">1:00PM</th>
+                            <td class = "empty"></td>
+                            <!-- ICT 215 -->
+                            <!-- Photo 330 -->
+                            <!-- ICT 215 -->
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 7.5 -->
+                        <tr>
+                            <!-- 1:30PM -->
+                            <td rowspan="3" class = "math tooltip">Math 275
+                                <span class = "tooltiptext">Jarvis 147</span>
+                            </td>
+                            <!-- ICT 215 -->
+                            <!-- Photo 330 -->
+                            <!-- ICT 215 -->
+                            <td rowspan="3" class = "math tooltip">Math 275
+                                <span class = "tooltiptext">Jarvis 147</span>
+                            </td>
+                        </tr>
+
+                        <!-- Row 8 -->
+                        <tr>
+                            <th rowspan="2" class = "time">2:00PM</th>
+                            <!-- Math 275 -->
+                            <td class = "empty"></td>
+                            <td rowspan="3" id = "photo310" class = "tooltip">Photo 310
+                                <span class = "tooltiptext">ComTech 155</span>
+                            </td>
+                            <!-- ICT 215 -->
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 8.5 -->
+                        <tr>
+                            <!-- 2:30PM -->
+                            <!-- Math 275 -->
+                            <td class = "empty"></td>
+                            <!-- Photo 310 -->
+                            <td class = "empty"></td>
+                            <!-- Math 275 -->
+                        </tr>
+
+                        <!-- Row 9 -->
+                        <tr>
+                            <th rowspan="2" class = "time">3:00PM</th>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                            <!-- Photo 310 -->
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 9.5 -->
+                        <tr>
+                            <!-- 3:30PM -->
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                            <td class = "empty"></td>
+                        </tr>
+
+                        <!-- Row 10 -->
+                        <tr>
+                            <th class = "time">4:00PM</th>
+                            <td rowspan="2" colspan="5" id = "endOfDay">End of Day</td>
+                        </tr>
+
+                        <!-- Row 11 -->
+                        <tr>
+                            <th class = "time">5:00PM</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Clock Graphic -->
+            <section>
+                <h1>Clock Graphic</h1>
+
+                <canvas id="canvas" width="400" height="400"></canvas>
+
+            </section>
+
+            <footer>&copy; 2020 Keenan Leverty - For CS 248 at UW Stout</footer>
+
+            <script>
+                var canvas = document.getElementById("canvas");
+                var ctx = canvas.getContext("2d");
+                var radius = canvas.height / 2;
+                ctx.translate(radius, radius);
+                radius = radius * 0.90
+                drawClock();
+                setInterval(drawClock,30);
+                
+                // Basic function to draw the clock.
+                function drawClock() {
+                  ctx.arc(0, 0, radius, 0 , 2 * Math.PI);
+                  ctx.fillStyle = "white";
+                  ctx.fill();
+                }
+
+                //Added drawDate call
+                function drawClock() {
+                    drawFace(ctx, radius);
+                    drawNumbers(ctx, radius);
+                    drawDate();
+                    drawTime(ctx, radius);
+                }
+
+                //Draw face gradient
+                function drawFace(ctx, radius) {
+                    var grad;
+
+                    ctx.beginPath();
+                    ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+
+                    grad = ctx.createRadialGradient(0, 0 ,radius * 0.95, 0, 0, radius * 1.05);
+                    grad.addColorStop(0, '#333');
+                    grad.addColorStop(0.5, 'white');
+                    grad.addColorStop(1, '#333');
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = radius*0.1;
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+                    ctx.fillStyle = '#333';
+                    ctx.fill();
+                }
+
+                // Draw numbers around the clock face
+                function drawNumbers(ctx, radius) {
+                    var ang;
+                    var num;
+                    ctx.font = radius * 0.15 + "px arial";
+                    ctx.textBaseline = "middle";
+                    ctx.textAlign = "center";
+                    for(num = 1; num < 13; num++){
+                        ang = num * Math.PI / 6;
+                        ctx.rotate(ang);
+                        ctx.translate(0, -radius * 0.85);
+                        ctx.rotate(-ang);
+                        ctx.fillText(num.toString(), 0, 0);
+                        ctx.rotate(ang);
+                        ctx.translate(0, radius * 0.85);
+                        ctx.rotate(-ang);
+                    }
+                }
+
+                //Added milli variable to return milliseconds time.
+                //Added "+ (milli / 1000)" to make the millisecond effect the angle of the seconds hand
+                function drawTime(ctx, radius){
+                    var now = new Date();
+                    var hour = now.getHours();
+                    var minute = now.getMinutes();
+                    var second = now.getSeconds();
+                    var milli = now.getMilliseconds();
+                    //hour
+                    hour = hour%12;
+                    hour = (hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
+                    drawHand(ctx, hour, radius*0.5, radius*0.07, 'black');
+                    //minute
+                    minute = (minute*Math.PI/30)+(second*Math.PI/(30*60));
+                    drawHand(ctx, minute, radius*0.8, radius*0.07, 'black');
+                    // second
+                    second = ((second + (milli / 1000))*Math.PI/30);
+                    drawHand(ctx, second, radius*0.9, radius*0.02, 'red');
+                }
+
+                //No Change
+                function drawHand(ctx, pos, length, width, color) {
+                    ctx.strokeStyle = color;
+                    ctx.beginPath();
+                    ctx.lineWidth = width;
+                    ctx.lineCap = "round";
+                    ctx.moveTo(0,0);
+                    ctx.rotate(pos);
+                    ctx.lineTo(0, -length);
+                    ctx.stroke();
+                    ctx.rotate(-pos);
+                }
+
+                // New Function to draw the Date on the face of the clock
+                function drawDate() {
+                    var now = new Date();
+                    var month = now.getMonth() + 1;
+                    if(month < 10) { month = "0" + month};
+                    var day = now.getDate();
+                    if(day < 10) { day = "0" + day};
+                    var year = now.getFullYear();
+
+                    // Drawing Border Box
+                    var x = -100;
+                    var y = -90;
+                    ctx.fillStyle = 'black';
+                    ctx.fillRect(x, y, x*-2, 50);
+
+                    //Drawing Date Numbers
+                    ctx.font = '45px Arial';
+                    ctx.fillStyle = 'white';
+                    ctx.textAlign = 'center';
+                    ctx.fillText(month + '/' + day + '/' + String(year).substr(2), 0, -60);
+                }
+            </script>
+
+        </body>
+
+</html>

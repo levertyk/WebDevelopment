@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canvas_Practice</title>
+    </head>
+
+        <body>
+            <header>Canvas_Animation - CS 248</header>
+
+            <h1>Canvas</h1>
+
+            <section>
+                <h2>Playground</h2>
+
+                <canvas id="userCanvas" width="960" height="540" style="background-color: lightgray;"></canvas>
+            </section>
+
+            <footer>&copy; 2020 Keenan Leverty - For CS 248 at UW Stout</footer>
+        
+            <script>
+                var canvas = document.getElementById('userCanvas')
+                var ctx = canvas.getContext('2d')
+                var ratio = 0.0
+
+                // setInterval(drawNextFrame, 30)
+                requestAnimationFrame(drawNextFrame)
+
+                function drawWavyRects(angleOffset) {
+                    //Drawing a rectangle of 200 x 100.
+                    ctx.strokeStyle = 'black';
+
+                    for(var i = 0; i < 120; i++){
+                        /* (X, Y) Coordinates of Rects */       ctx.strokeRect(10 + (i*10) - 100, 100 + Math.sin(i/4 + angleOffset)*50,
+                        /* WIdth and Height of Rectangles */    100,50)
+                    }
+                }
+
+                function drawNextFrame(){
+                    ctx.clearRect(0, 0, canvas.width, canvas.height)
+                    drawWavyRects(ratio * Math.PI)
+                    ratio += 0.01
+                    requestAnimationFrame(drawNextFrame)
+                }
+                
+            </script>
+
+        </body>
+</html>

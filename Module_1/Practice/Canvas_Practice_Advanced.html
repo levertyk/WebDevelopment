@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Canvas_Practice</title>
+    </head>
+
+        <body>
+            <header>Canvas_Animation - CS 248</header>
+
+            <h1>Canvas</h1>
+
+            <section>
+                <h2>Playground</h2>
+
+                <canvas id="userCanvas" width="960" height="540" style="background-color: lightgray;"></canvas>
+            </section>
+
+            <footer>&copy; 2020 Keenan Leverty - For CS 248 at UW Stout</footer>
+        
+            <script>
+                var canvas = document.getElementById('userCanvas')
+                var ctx = canvas.getContext('2d')
+                var ratio = 0.0
+
+                drawBackgroundGradient()
+                drawtriangles(1)
+                // requestAnimationFrame(drawNextFrame)
+
+                //Draw a vertical gradient over the entire canvas.
+                function drawBackgroundGradient() {
+                    var linGrad = ctx.createLinearGradient(0, 0, 0, canvas.height)
+                    linGrad.addColorStop(0, 'lightgreen')
+                    linGrad.addColorStop(1, 'lightblue')
+
+                    ctx.fillStyle = linGrad
+                    ctx.fillRect(0, 0, canvas.width, canvas.height)
+                }
+
+                function drawtriangles(offset) {
+
+                    for(var i = 0; i < 100; i++){
+                        ctx.strokeStyle = 
+
+                        ctx.beginPath()
+                        ctx.moveTo(canvas.width/2 - (i * offset), canvas.height/2 - (i * offset))
+                        ctx.lineTo(canvas.width/2 + (i * offset), canvas.height/2 - (i * offset))
+                        ctx.lineTo(canvas.width/2, canvas.height/2 + (i * offset))
+                        ctx.lineTo(canvas.width/2 - (i * offset), canvas.height/2 - (i * offset))
+                        ctx.stroke()
+                    }
+                }
+
+                function drawNextFrame(){
+                    drawBackgroundGradient()
+                    drawtriangles(ratio)
+                    ratio += 0.1
+                    requestAnimationFrame(drawNextFrame)
+                }
+
+            </script>
+
+        </body>
+</html>

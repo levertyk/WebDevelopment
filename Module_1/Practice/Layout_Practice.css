@@ -1,0 +1,26 @@
+#para1 {
+    font-size: 25px;
+}
+
+.emphasize {
+    color: red;
+}
+
+.block {
+    padding: 3px;
+    margin: 5px;
+    width: 20%;
+    height: 200px;
+    display:inline-block;
+    border: 4x dashed rgba(22, 64, 143, 0.404);
+}
+
+#fixedBR {
+    border: 4px solid lightblue;
+    background-color: white;
+    padding: 3px; margin: 5px;
+    bottom: 0px; right: 0px;
+    z-index: -1;
+    position: fixed;
+
+}
